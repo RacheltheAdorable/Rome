@@ -16,7 +16,8 @@ for regLine in regLines:
     p = re.compile(tp_ls[1])
     tg_lines = list()
     for txtline in txtlines:
-        if p.search(txtline):
+        txtchain = txtline.split('\t')
+        if txtchain[2] == 'S' and p.search(txtchain):
             tg_lines.append(txtline)
     with open(tp_ls[0]+'.txt', 'w') as w3:
         w3.writelines(tg_lines)
